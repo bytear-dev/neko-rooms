@@ -203,7 +203,7 @@ echo "[Y] Got all settings..."
 # Create env
 #
 
-NEKO_IMAGES=(m1k1o/neko:firefox m1k1o/neko:chromium m1k1o/neko:google-chrome)
+NEKO_IMAGES=(bytear/neko:firefox bytear/neko:chromium bytear/neko:google-chrome)
 
 {
   echo "TZ=${TZ}"
@@ -223,12 +223,12 @@ echo "[Y] Creating env..."
 
 mkdir -p "./traefik/config"
 
-wget -O "./traefik/traefik.yml" "https://raw.githubusercontent.com/m1k1o/neko-rooms/master/traefik/traefik.yml"
+wget -O "./traefik/traefik.yml" "https://raw.githubusercontent.com/bytear-dev/neko-rooms/master/traefik/traefik.yml"
 sed -i "s/yourname@example.com/${TRAEFIK_EMAIL}/g" "./traefik/traefik.yml"
 
-wget -O "./traefik/config/middlewares.yml" "https://raw.githubusercontent.com/m1k1o/neko-rooms/master/traefik/config/middlewares.yml"
-wget -O "./traefik/config/routers.yml" "https://raw.githubusercontent.com/m1k1o/neko-rooms/master/traefik/config/routers.yml"
-wget -O "./traefik/config/tls.yml" "https://raw.githubusercontent.com/m1k1o/neko-rooms/master/traefik/config/tls.yml"
+wget -O "./traefik/config/middlewares.yml" "https://raw.githubusercontent.com/bytear-dev/neko-rooms/master/traefik/config/middlewares.yml"
+wget -O "./traefik/config/routers.yml" "https://raw.githubusercontent.com/bytear-dev/neko-rooms/master/traefik/config/routers.yml"
+wget -O "./traefik/config/tls.yml" "https://raw.githubusercontent.com/bytear-dev/neko-rooms/master/traefik/config/tls.yml"
 
 touch "./traefik/acme.json"
 chmod 600 "./traefik/acme.json"
@@ -239,7 +239,7 @@ echo "[Y] Downloading traefik config..."
 # Download docker compose file
 #
 
-wget -O "./docker-compose.yml" "https://raw.githubusercontent.com/m1k1o/neko-rooms/master/docker-compose.yml"
+wget -O "./docker-compose.yml" "https://raw.githubusercontent.com/bytear-dev/neko-rooms/master/docker-compose.yml"
 
 # Pull neko images
 for NEKO_IMAGE in "${NEKO_IMAGES[@]}"; do
